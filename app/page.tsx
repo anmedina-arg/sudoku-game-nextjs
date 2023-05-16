@@ -154,7 +154,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col bg-gray-800 min-h-screen justify-center items-center text-white text-2xl">
+    <main className="flex flex-col bg-gray-800 h-screen w-screen justify-start sm:justify-center items-center text-white text-2xl">
       <h1 className="m-2">SUDOKU</h1>
       <table className="border-collapse bg-gray-400">
         <tbody>
@@ -177,7 +177,7 @@ export default function Home() {
                             maxLength={1}
                             type="text"
                             disabled={initial[row][col] !== -1}
-                            className="w-14 h-14 text-xl text-black text-center p-0 border-solid border-2 rounded-sm"
+                            className="w-10 sm:w-14 h-10 sm:h-14 text-xl text-black text-center p-0 border-solid border-2 rounded-sm"
                           />
                         </td>
                       )
@@ -189,16 +189,16 @@ export default function Home() {
           }
         </tbody>
       </table>
-      <div className="flex">
+      <div className="flex w-full justify-between sm:justify-center ">
         <button 
         onClick={checkSudoku}
-        className="bg-orange-500 rounded-md border-none font-bold p-4 m-4">Check</button>
+        className="bg-orange-500 rounded-md border-none font-bold p-2 m-2">Check</button>
         <button 
         onClick={solveSudoku}
-        className="bg-orange-500 rounded-md border-none font-bold p-4 m-4">Solve</button>
+        className="bg-orange-500 rounded-md border-none font-bold p-2 m-2">Solve</button>
         <button 
         onClick={restartSudoku}
-        className="bg-orange-500 rounded-md border-none font-bold p-4 m-4">Restart</button>
+        className="bg-orange-500 rounded-md border-none font-bold p-2 m-2">Restart</button>
       </div>
       <footer>
         <span className="text-sm">
