@@ -62,9 +62,9 @@ export default function Home() {
     if (compare.isComplete) {
       alert('Felicidades resolviste el sudoku');
     } else if (compare.isSolvable) {
-      alert('Continua!');
+      alert('Hasta ahora, no hay numeros mal ubicados!');
     } else {
-      alert('Intentalo de nuevo');
+      alert('Algún número no está en su posición!');
     }
   };
 
@@ -154,7 +154,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col bg-gray-800 h-screen w-screen justify-start sm:justify-center items-center text-white text-2xl">
+    <main className="flex flex-col bg-gray-800 h-screen w-screen justify-start sm:justify-center items-center text-white text-2xl p-2">
       <h1 className="m-2">SUDOKU</h1>
       <table className="border-collapse bg-gray-400">
         <tbody>
