@@ -1,27 +1,26 @@
 'use client';
 import { ChangeEvent } from "react";
 import { useState } from "react";
+import { Buttons } from '@/components/buttons';
+import { getDeepCopy } from "@/functions";
+import { initial } from "@/puzzles";
 
-let initial = [
-  [-1, 5, -1, 9, -1, -1, -1, -1, -1],
-  [8, -1, -1, -1, 4, -1, 3, -1, 7],
-  [-1, -1, -1, 2, 8, -1, 1, 9, -1],
-  [5, 3, 8, 6, -1, 7, 9, 4, -1],
-  [-1, 2, -1, 3, -1, 1, -1, -1, -1],
-  [1, -1, 9, 8, -1, 4, 6, 2, 3],
-  [9, -1, 7, 4, -1, -1, -1, -1, -1],
-  [-1, 4, 5, -1, -1, -1, 2, -1, 9],
-  [-1, -1, -1, -1, 3, -1, -1, 7, -1]
-];
+// let initial = [
+//   [-1, 5, -1, 9, -1, -1, -1, -1, -1],
+//   [8, -1, -1, -1, 4, -1, 3, -1, 7],
+//   [-1, -1, -1, 2, 8, -1, 1, 9, -1],
+//   [5, 3, 8, 6, -1, 7, 9, 4, -1],
+//   [-1, 2, -1, 3, -1, 1, -1, -1, -1],
+//   [1, -1, 9, 8, -1, 4, 6, 2, 3],
+//   [9, -1, 7, 4, -1, -1, -1, -1, -1],
+//   [-1, 4, 5, -1, -1, -1, 2, -1, 9],
+//   [-1, -1, -1, -1, 3, -1, -1, 7, -1]
+// ];
 
 //la funcion getDeepCopy, realiza lo que se conoce como "copia profunda", a diferencia de realizar una copia con el spread operator, que se realizara una "copia superficial".Una copia superficial significa que se crea una nueva estructura de datos que contiene referencias a los mismos elementos que la estructura original. En otras palabras, la nueva estructura apunta a los mismos objetos o elementos que la original, en lugar de crear copias independientes de ellos.
 
 
 export default function Home() {
-  
-  const getDeepCopy = (arr: any) => {
-    return JSON.parse(JSON.stringify(arr))
-  };
 
   const [sudokuArr, setSudokuArr] = useState(getDeepCopy(initial));
   
@@ -190,15 +189,9 @@ export default function Home() {
         </tbody>
       </table>
       <div className="flex w-full justify-between sm:justify-center ">
-        <button 
-        onClick={checkSudoku}
-        className="bg-orange-500 rounded-md border-none font-bold p-2 m-2">Check</button>
-        <button 
-        onClick={solveSudoku}
-        className="bg-orange-500 rounded-md border-none font-bold p-2 m-2">Solve</button>
-        <button 
-        onClick={restartSudoku}
-        className="bg-orange-500 rounded-md border-none font-bold p-2 m-2">Restart</button>
+        <Buttons functionClick={checkSudoku}>Check</Buttons>
+        <Buttons functionClick={solveSudoku}>Solve</Buttons>
+        <Buttons functionClick={restartSudoku}>Restart</Buttons>
       </div>
       <footer>
         <span className="text-sm">
